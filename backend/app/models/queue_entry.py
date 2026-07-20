@@ -7,7 +7,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base
 
-
+#the person standing in the line 
 class QueueEntry(Base):
     __tablename__ = "queue_entries"
 
