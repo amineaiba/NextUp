@@ -1,0 +1,3 @@
+from app.services import queue_service
+
+__all__ = ["queue_service"]
