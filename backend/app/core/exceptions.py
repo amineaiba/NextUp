@@ -28,3 +28,8 @@ class EntryNotCallable(AppError):
 class AlreadyInQueue(AppError):
     status_code = 409
     detail = "This email is already in this queue"
+
+
+class EntryNotFound(AppError):
+    status_code = 404
+    detail = "Entry not found"

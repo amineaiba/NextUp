@@ -31,11 +31,11 @@ async def handle_app_error(request: Request, exc: AppError) -> JSONResponse:
 
 
 @app.exception_handler(IntegrityError)
-async def handle_integrity_error(
-    request: Request, exc: IntegrityError
-) -> JSONResponse:
+async def handle_integrity_error(request: Request, exc: IntegrityError) -> JSONResponse:
     logger.warning("constraint violated on %s", request.url.path, exc_info=exc)
-    return JSONResponse(status_code=409, content={"detail": "Conflict with existing data"})
+    return JSONResponse(
+        status_code=409, content={"detail": "Conflict with existing data"}
+    )
 
 
 @app.exception_handler(SQLAlchemyError)
