@@ -25,3 +25,8 @@ class EntryResponse(BaseModel):
 class CalledEntryResponse(EntryResponse):
     # Staff-facing: they need the email to call the person out loud.
     email: EmailStr
+
+
+class PositionResponse(EntryResponse):
+    # Client-facing poll: the number that matters is how many are still ahead.
+    people_ahead: int

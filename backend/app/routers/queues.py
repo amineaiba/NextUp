@@ -9,6 +9,7 @@ from app.schemas.queue import (
     CallRequest,
     EntryResponse,
     JoinRequest,
+    PositionResponse,
 )
 from app.services import queue_service
 
@@ -32,3 +33,8 @@ async def call_next(
 @router.post("/entries/{entry_id}/done", response_model=EntryResponse)
 async def mark_done(entry_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
     return await queue_service.mark_done(db, entry_id)
+
+
+@router.get("/entries/{entry_id}/position", response_model=PositionResponse)
+async def get_position(entry_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
+    return await queue_service.get_position(db, entry_id)

@@ -1,0 +1,17 @@
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+# Alembic revision files are generated, not hand-styled.
+extend-exclude = ["alembic/versions", "alembic/env.py"]
+
+[tool.ruff.lint]
+# E/F: pyflakes + pycodestyle errors. I: import sort. UP: modernize syntax.
+# B: bugbear (catches real bugs, e.g. mutable default args).
+select = ["E", "F", "I", "UP", "B"]
+# B008: flags Depends(...) in a default arg. That is the normal FastAPI
+# dependency-injection pattern, not a bug.
+ignore = ["B008"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

@@ -24,6 +24,7 @@ class QueueEventType(StrEnum):
     NO_SHOW = "no_show"
     DONE = "done"
 
+
 def db_enum(enum_cls: type[StrEnum], name: str) -> SAEnum:
     # VARCHAR + CHECK, not a native PG type: adding a value later is a normal
     # migration. values_callable stores "waiting", not "WAITING".

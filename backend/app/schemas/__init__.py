@@ -3,6 +3,7 @@ from app.schemas.queue import (
     CallRequest,
     EntryResponse,
     JoinRequest,
+    PositionResponse,
 )
 
 __all__ = [
@@ -10,4 +11,5 @@ __all__ = [
     "CalledEntryResponse",
     "EntryResponse",
     "JoinRequest",
+    "PositionResponse",
 ]
